@@ -44,7 +44,7 @@ public class PetCommand implements CommandExecutor {
             }
             EntityType type = EntityType.valueOf(args[2].toUpperCase());
             String name = args[3];
-            if(!(name.length() > 3 && name.length() < 16)) {
+            if(!(name.length() > 2 && name.length() < 16)) {
                 sender.sendMessage(Util.color("&cDe naam moet minimaal 3 letters en maximaal 16 letters zijn!"));
                 return false;
             }

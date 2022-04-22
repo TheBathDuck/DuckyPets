@@ -14,9 +14,10 @@ public class PetNameEvent implements Listener {
         Player player = event.getPlayer();
         if(!(Duckypets.getEventName().contains(player))) return;
         Duckypets.getEventName().remove(player);
+        event.setCancelled(true);
         String message = event.getMessage();
-        if(!(message.length() > 3 && message.length() < 16)) {
-            player.sendMessage(Util.color("&cJe pet naam mag minimaal 4 letters en maximaal 16 letters hebben."));
+        if(!(message.length() > 2 && message.length() < 16)) {
+            player.sendMessage(Util.color("&cJe pet naam mag minimaal 3 letters en maximaal 16 letters hebben."));
             return;
         }
         Pet pet = Duckypets.getOwnerPets().get(player);
