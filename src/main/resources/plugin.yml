@@ -1,0 +1,6 @@
+name: DuckyPets
+version: '${project.version}'
+main: dev.thebathduck.duckypets.Duckypets
+authors: [ TheBathDuck ]
+commands:
+  pet: {}
