@@ -13,6 +13,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.io.Console;
@@ -146,6 +147,12 @@ public class PetCommand implements CommandExecutor {
             return false;
         }
 
+        if(args.length == 1 && args[0].equalsIgnoreCase("menu") && sender instanceof Player) {
+            Player player = (Player) sender;
+            Duckypets.getPetMenu().open(player);
+            return false;
+        }
+
         sendHelp(sender);
 
         return false;
@@ -156,8 +163,9 @@ public class PetCommand implements CommandExecutor {
         player.sendMessage(Util.color("&2/pet &acreate <Speler> <Entity> <Naam> &7- &aMaak een pet aan!"));
         player.sendMessage(Util.color("&2/pet &alist <Speler> &7- &aBekijk een speler zijn pet's!"));
         player.sendMessage(Util.color("&2/pet &aremove <Speler> <ID> &7- &aVerwijder pets van een speler."));
-        player.sendMessage(Util.color("&2/pet &aremoveall <Speler> &a- &aVerwijder alle pets van een speler."));
-        player.sendMessage(Util.color("&2/pet &avoucher <Speler> <Mob> <Naam> &a- &aGeef een voucher aan een speler."));
+        player.sendMessage(Util.color("&2/pet &aremoveall <Speler> &7- &aVerwijder alle pets van een speler."));
+        player.sendMessage(Util.color("&2/pet &avoucher <Speler> <Mob> <Naam> 7- &aGeef een voucher aan een speler."));
+        player.sendMessage(Util.color("&2/pet &amenu &7- &aOpen het menu waar je maar wilt."));
         player.sendMessage(Util.color(""));
     }
 

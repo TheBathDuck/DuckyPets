@@ -3,6 +3,7 @@ package dev.thebathduck.duckypets;
 import dev.thebathduck.duckypets.commands.PetCommand;
 import dev.thebathduck.duckypets.listeners.*;
 import dev.thebathduck.duckypets.listeners.chatevents.PetNameEvent;
+import dev.thebathduck.duckypets.listeners.chatevents.WorldListener;
 import dev.thebathduck.duckypets.menu.PetEditor;
 import dev.thebathduck.duckypets.menu.PetMenu;
 import dev.thebathduck.duckypets.menu.editmenu.PetCatMenu;
@@ -53,6 +54,7 @@ public final class Duckypets extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PetWorldInteract(), this);
         Bukkit.getPluginManager().registerEvents(new QuitListener(), this);
         Bukkit.getPluginManager().registerEvents(new VoucherListener(), this);
+        Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
         (new PetTask()).runTaskTimer(this, 0L, 5L);
 
     }
