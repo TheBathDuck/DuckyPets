@@ -21,12 +21,21 @@ public class PetEditor extends GUIHolder {
     public void open(Player player, Pet pet) {
         this.inventory = Bukkit.createInventory(this, 3*9, Util.color("Pet Bewerken | " + pet.getName()));
 
-        this.inventory.setItem(10, new ItemBuilder(Material.NAME_TAG).setColoredName("&6Verander Naam")
-                .addLoreLine("")
-                .addLoreLine("&7Geef je pet een andere")
-                .addLoreLine("&7naam.")
-                .build()
-        );
+        if(Duckypets.getInstance().getConfig().getBoolean("can-player-rename")) {
+            this.inventory.setItem(10, new ItemBuilder(Material.NAME_TAG).setColoredName("&6Verander Naam")
+                    .addLoreLine("")
+                    .addLoreLine("&7Geef je pet een andere")
+                    .addLoreLine("&7naam.")
+                    .build()
+            );
+        } else {
+            this.inventory.setItem(10, new ItemBuilder(Material.BARRIER).setColoredName("&6Verander Naam")
+                    .addLoreLine("")
+                    .addLoreLine("&7Jij kan de naam niet aanpassen")
+                    .addLoreLine("&7van pets.")
+                    .build()
+            );
+        }
 
         if(pet.getEntity() instanceof Wolf) {
             this.inventory.setItem(11, new ItemBuilder(Material.BONE).setColoredName("&6Halsband kleur")

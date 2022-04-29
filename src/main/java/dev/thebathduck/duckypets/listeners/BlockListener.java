@@ -14,10 +14,9 @@ public class BlockListener implements Listener {
         if(!(event.getAction().equals(Action.RIGHT_CLICK_BLOCK))) return;
         if(event.getClickedBlock() == null) return;
         if(!(event.getHand().equals(EquipmentSlot.HAND))) return;
-        if(event.getClickedBlock().getType().equals(Material.PURPUR_BLOCK)) {
+        Material material = Material.valueOf(Duckypets.getInstance().getConfig().getString("diermand-block"));
+        if(event.getClickedBlock().getType().equals(material)) {
             Duckypets.getPetMenu().open(event.getPlayer());
-
-
         }
     }
 }

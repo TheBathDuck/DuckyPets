@@ -15,10 +15,12 @@ import dev.thebathduck.duckypets.utils.GUIHolder;
 import dev.thebathduck.duckypets.utils.Util;
 import lombok.Getter;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -31,6 +33,7 @@ public final class Duckypets extends JavaPlugin {
     private static @Getter PetCollarMenu petCollarMenu;
     private static @Getter PetCatMenu petCatMenu;
 
+    private static @Getter ArrayList<String> allowed = new ArrayList<>();
     private static @Getter HashMap<Player, Pet> ownerPets = new HashMap<>();
     private static @Getter HashMap<Entity, Pet> entityPets = new HashMap<>();
     private static @Getter ArrayList<Pet> pets = new ArrayList<>();
@@ -39,6 +42,7 @@ public final class Duckypets extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         instance = this;
         GUIHolder.init(this);
         data = new ConfigurationFile(this, "data.yml", true);
@@ -56,6 +60,18 @@ public final class Duckypets extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new VoucherListener(), this);
         Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
         (new PetTask()).runTaskTimer(this, 0L, 5L);
+
+        allowed.add("BAT");
+        allowed.add("CHICKEN");
+        allowed.add("COW");
+        allowed.add("HORSE");
+        allowed.add("SHEEP");
+        allowed.add("RABBIT");
+        allowed.add("PIG");
+        allowed.add("PARROT");
+        allowed.add("OCELOT");
+        allowed.add("VILLAGER");
+        allowed.add("WOLF");
 
     }
 

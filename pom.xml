@@ -48,7 +48,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.3.1</version>
                 <configuration>
-                    <outputDirectory>C:\Users\Daan\Desktop\1.12.2 maar dan nog een\plugins</outputDirectory>
+                    <outputDirectory>C:\Users\daanp\Desktop\Minecraft Development\Servers\1.12.2 Test\plugins</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

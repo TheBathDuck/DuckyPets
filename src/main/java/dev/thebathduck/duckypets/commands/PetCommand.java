@@ -43,6 +43,10 @@ public class PetCommand implements CommandExecutor {
                 sender.sendMessage(Util.color("&cJe hebt geen geldige mob opgegeven!"));
                 return false;
             }
+            if(!isAllowed(EntityType.valueOf(args[2].toUpperCase()))) {
+                sender.sendMessage(Util.color("&cDeze mob is niet toegestaan."));
+                return false;
+            }
             EntityType type = EntityType.valueOf(args[2].toUpperCase());
             String name = args[3];
             if(!(name.length() > 2 && name.length() < 16)) {
@@ -138,6 +142,10 @@ public class PetCommand implements CommandExecutor {
                 sender.sendMessage(Util.color("&cJe hebt geen geldige mob opgegeven!"));
                 return false;
             }
+            if(!isAllowed(EntityType.valueOf(args[2].toUpperCase()))) {
+                sender.sendMessage(Util.color("&cDeze mob is niet toegestaan."));
+                return false;
+            }
             String mob = args[2].toLowerCase();
             String name = args[3];
             ItemStack voucher = Util.createVoucher(mob, name, target.getName());
@@ -188,5 +196,11 @@ public class PetCommand implements CommandExecutor {
         }
 
         return pets;
+    }
+
+    public boolean isAllowed(EntityType entityType) {
+        String entityString = entityType.toString().toUpperCase();
+        if(!Duckypets.getAllowed().contains(entityString)) return false;
+        return true;
     }
 }
