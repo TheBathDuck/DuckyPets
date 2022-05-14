@@ -1,2 +1,12 @@
 diermand-block: PURPUR_BLOCK
 can-player-rename: true
+
+naam:
+  minimum-length: 3
+  maximum-length: 16
+  allow-colors: true
+  blacklist:
+    - ".nl"
+    - "www."
+    - "kanker"
+    - "tyfus"

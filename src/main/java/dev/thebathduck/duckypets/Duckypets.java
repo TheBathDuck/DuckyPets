@@ -59,6 +59,7 @@ public final class Duckypets extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new QuitListener(), this);
         Bukkit.getPluginManager().registerEvents(new VoucherListener(), this);
         Bukkit.getPluginManager().registerEvents(new WorldListener(), this);
+        Bukkit.getPluginManager().registerEvents(new AnimalProtect(), this);
         (new PetTask()).runTaskTimer(this, 0L, 5L);
 
         allowed.add("BAT");
