@@ -7,5 +7,5 @@
 | 📝 Pet Names | ✅ |
 | 📋 Edit Menu | ✅ |
 | 📜 Vouchers | ✅ |
+| ⚙️ Namen Blacklist | ✅ |
 | ⚙️ Offline Toevoegen | ❌ |
-| ⚙️ Namen Blacklist | ❌ |
