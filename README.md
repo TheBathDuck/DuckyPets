@@ -8,4 +8,4 @@
 | 📋 Edit Menu | ✅ |
 | 📜 Vouchers | ✅ |
 | ⚙️ Namen Blacklist | ✅ |
-| ⚙️ Offline Toevoegen | ❌ |
+| ⚙️ Offline Toevoegen | ✅ |

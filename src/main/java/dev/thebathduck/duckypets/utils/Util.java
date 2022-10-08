@@ -24,7 +24,7 @@ public class Util {
         return item;
     }
 
-    public static ItemStack createVoucher(String mob, String name, String ontvanger) {
+    public static ItemStack createVoucher(String mob, String name) {
         ItemStack item = new ItemStack(Material.PAPER);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(color("&aPet Voucher"));
@@ -32,7 +32,6 @@ public class Util {
         lore.add(color(""));
         lore.add(color("&7Mob: &f" + mob));
         lore.add(color("&7Naam: &f" + name));
-        lore.add(color("&7Ontvanger: &f" + ontvanger));
         lore.add(color(""));
         lore.add(color("&7Rechtermuis om te claimen."));
         meta.setLore(lore);

@@ -15,12 +15,10 @@ import dev.thebathduck.duckypets.utils.GUIHolder;
 import dev.thebathduck.duckypets.utils.Util;
 import lombok.Getter;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -50,7 +48,7 @@ public final class Duckypets extends JavaPlugin {
         petEditor = new PetEditor();
         petCollarMenu = new PetCollarMenu();
         petCatMenu = new PetCatMenu();
-        getCommand("pet").setExecutor(new PetCommand());
+        new PetCommand().register(this, true);
         Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
         Bukkit.getPluginManager().registerEvents(new PetDamageListener(), this);
         Bukkit.getPluginManager().registerEvents(new PetInteractListener(), this);
