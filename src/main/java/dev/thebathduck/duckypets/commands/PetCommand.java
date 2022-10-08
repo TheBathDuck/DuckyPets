@@ -5,6 +5,7 @@ import dev.thebathduck.duckypets.objects.Pet;
 import dev.thebathduck.duckypets.utils.ConfigurationFile;
 import dev.thebathduck.duckypets.utils.Util;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -32,9 +33,9 @@ public class PetCommand implements CommandExecutor {
 
         // - /pet create <Owner> <EntityType> <Name>
         if(args.length == 4 && args[0].equals("create")) {
-            Player target = Bukkit.getPlayer(args[1]);
+            OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
             if(target == null) {
-                sender.sendMessage(Util.color("&4" + args[1] + " &cis niet online"));
+                sender.sendMessage(Util.color("&4" + args[1] + " &cheeft niet op deze server gespeeld!"));
                 return false;
             }
             try {
@@ -63,7 +64,9 @@ public class PetCommand implements CommandExecutor {
             Duckypets.getData().saveConfig();
 
             sender.sendMessage(Util.color("&aPet succesvol aangemaakt en toegevoegd aan &2" + target.getName() + "'s &adierenmand."));
-            target.sendMessage(Util.color("&aEr is een &2" + args[2].toLowerCase() + " &atoegevoegd aan je dierenmand!"));
+            if(target.getPlayer() != null) {
+                target.getPlayer().sendMessage(Util.color("&aEr is een &2" + args[2].toLowerCase() + " &atoegevoegd aan je dierenmand!"));
+            }
             return false;
         }
 
