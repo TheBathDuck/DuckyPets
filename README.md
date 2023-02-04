@@ -1,5 +1,7 @@
 # DuckyPets
 
+Made for 1.12.2
+
 ## Feature's
 | Feature  | Status | 
 |---|---|
